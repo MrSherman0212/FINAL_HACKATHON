@@ -4,9 +4,9 @@ import './Footer.css';
 const Footer = () => {
     return (
         <footer>
-
+            lol
         </footer>
     );
 };
 
-export default Footfooter
+export default Footer

@@ -1,10 +1,10 @@
 import React from 'react';
-import './Header.css';
+import './Header';
 
 const Header = () => {
     return (
         <header>
-
+            head
         </header>
     );
 };
