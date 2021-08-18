@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dark {
+  background-color: #000014 !important;
+  color: white !important;
+  transition: background-color 1s ease-out;
+}
+
+.light {
+  background-color: rgb(255, 255, 255) !important;
+  color: unset !important;
+  transition: background-color 1s ease-out;
+}
