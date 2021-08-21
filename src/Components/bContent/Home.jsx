@@ -13,34 +13,24 @@ const Home = () => {
         setY(event.clientY)
     }
     const blockClass = {
-        boxShadow: `${mode ? 0 : (-x / 50)}px ${mode ? 0 : (-y / 50)}px 10px 0px ${mode ? "#d57cff" : "#666666"}`,
-        width: "200px",
-        height: "200px",
-        backgroundColor: "#fdfdfd",
-        margin: "50px",
-    }
-    const list = {
-        width: "100%",
-        display: "flex",
-        justifyContent: "space-evenly",
-        alignItems: "center",
-        flexWrap: "wrap"
+        boxShadow: `${mode ? 0 : (-x / 50)}px ${mode ? 0 : (-y / 50)}px 10px 0px ${mode ? "#d57cff" : "#666666"}`
     }
 
     return (
-        <div className={mode ? "dark" : "light"} style={list} onMouseMove={handleMouseMove}>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
-            <div className={mode ? "dark" : "light"} style={blockClass}></div>
+        <div className={`${mode ? "dark" : "light"} list`} onMouseMove={handleMouseMove}>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
         </div >
     );
 };

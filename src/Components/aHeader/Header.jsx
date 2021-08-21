@@ -1,18 +1,13 @@
 import React, { useContext } from 'react';
 import { clientContext } from '../../Contexts/ClientContext';
-import './Header';
+import Navbar from './Navbar';
 
 const Header = () => {
-    const { mode, handleMode } = useContext(clientContext)
+    const { theme } = useContext(clientContext)
 
     return (
-        <header className={mode ? "dark" : "light"}>
-            head
-            <button className="theme-btn" onClick={handleMode}>
-                {
-                    mode ? "Dark mode" : "Light mode"
-                }
-            </button>
+        <header className={theme}>
+            <Navbar />
         </header>
     );
 };

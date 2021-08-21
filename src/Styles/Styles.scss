@@ -1,0 +1,20 @@
+@import '../Components/aHeader/Assets/Header.scss';
+@import './Variables/Variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dark {
+    background-color: $dark !important;
+    color: $light !important;
+    transition: background-color 1s ease-out;
+}
+
+.light {
+    background-color: $light !important;
+    color: unset !important;
+    transition: background-color 1s ease-out;
+}
