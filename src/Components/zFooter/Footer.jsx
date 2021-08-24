@@ -3,7 +3,7 @@ import { clientContext } from '../../Contexts/ClientContext';
 import './Assets/Footer.css';
 
 const Footer = () => {
-    const { mode, blockShadowStyle } = useContext(clientContext)
+    const { blockShadowStyle } = useContext(clientContext)
 
     return (
         <footer className="footer" style={blockShadowStyle}>

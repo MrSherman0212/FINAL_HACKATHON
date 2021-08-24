@@ -7,7 +7,7 @@ const Header = () => {
     const { theme } = useContext(clientContext)
 
     return (
-        <header className={theme, "header"} >
+        <header className={theme} >
             <Navbar />
             <Filter />
         </header>

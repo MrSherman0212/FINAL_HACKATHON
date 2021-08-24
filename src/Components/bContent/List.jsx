@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { clientContext } from '../../Contexts/ClientContext';
+import Header from '../aHeader/Header';
+import Footer from '../zFooter/Footer';
 import './Content.css';
 
 const List = () => {
@@ -17,24 +19,15 @@ const List = () => {
     }
 
     return (
-        <div className={`${mode ? "dark" : "light"} list`} onMouseMove={handleMouseMove}>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
-        </div >
+        <>
+            <div onMouseMove={handleMouseMove}>
+                <Header />
+                <div className={`${mode ? "dark" : "light"} list`}>
+                    <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+                </div >
+                <Footer />
+            </div>
+        </>
     );
 };
 

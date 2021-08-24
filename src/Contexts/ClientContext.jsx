@@ -26,6 +26,7 @@ const ClientContextProvider = ({ children }) => {
     const history = useHistory();
     const [filterToggle, setFilterToggle] = useState(false);
     const [profileToggle, setProfileToggle] = useState(false);
+    const [mainPage, setMainPage] = useState(true);
 
     const getProducts = async () => {
         const search = new URLSearchParams(window.location.search);
@@ -56,6 +57,10 @@ const ClientContextProvider = ({ children }) => {
         setProfileToggle(!profileToggle)
     }
 
+    const handleMainPage = () => {
+        setMainPage(!mainPage)
+    }
+
     const blockShadowStyle = {
         boxShadow: `0px 0px 10px 0px ${shadow}`
     }
@@ -67,10 +72,13 @@ const ClientContextProvider = ({ children }) => {
             shadow,
             filterToggle,
             blockShadowStyle,
+            profileToggle,
+            mainPage,
             handleMode,
             createProduct,
             filterDropDown,
             profileDropDown,
+            handleMainPage,
         }
         }>
             {children}

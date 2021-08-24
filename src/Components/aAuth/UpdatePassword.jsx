@@ -1,8 +1,7 @@
-import { Container } from '@material-ui/core';
-import React, { useRef, useState } from 'react';
-import { Alert, Button, Card, Form } from 'react-bootstrap';
+import React, { useContext, useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../Contexts/AuthContext';
+import { clientContext } from '../../Contexts/ClientContext';
 
 export default function UpdateProfile() {
     const emailRef = useRef()
@@ -12,6 +11,7 @@ export default function UpdateProfile() {
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+    const { handleMainPage } = useContext(clientContext)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -40,56 +40,35 @@ export default function UpdateProfile() {
             .finally(() => {
                 setLoading(false)
             })
+        handleMainPage()
     }
 
     return (
         <>
-            <div className="App">
-                <Container className="d-flex align-items-center justify-content-center"
-                    style={{ height: "100vh" }}
-                >
-                    <div className="w-100" style={{ maxWidth: "400px" }}>
-                        <Card>
-                            <Card.Body>
-                                <h2 className="text-center mb-4">Update Profile</h2>
-                                {error && <Alert variant="danger">{error}</Alert>}
-                                <Form onSubmit={handleSubmit}>
-                                    <Form.Group id="email">
-                                        <Form.Label>Email</Form.Label>
-                                        <Form.Control
-                                            type="email"
-                                            ref={emailRef}
-                                            required
-                                            defaultValue={currentUser.email}
-                                        />
-                                    </Form.Group>
-                                    <Form.Group id="password">
-                                        <Form.Label>Password</Form.Label>
-                                        <Form.Control
-                                            type="password"
-                                            ref={passwordRef}
-                                            placeholder="Leave blank to keep the same"
-                                        />
-                                    </Form.Group>
-                                    <Form.Group id="password-confirm">
-                                        <Form.Label>Password Confirmation</Form.Label>
-                                        <Form.Control
-                                            type="password"
-                                            ref={passwordConfirmRef}
-                                            placeholder="Leave blank to keep the same"
-                                        />
-                                    </Form.Group>
-                                    <Button disabled={loading} className="w-100" type="submit">
-                                        Update
-                                    </Button>
-                                </Form>
-                            </Card.Body>
-                        </Card>
-                        <div className="w-100 text-center mt-2">
-                            <Link to="/">Cancel</Link>
-                        </div>
+            <div className="auth-container">
+                <div className="auth-block">
+                    <card>
+                        <h2>Log In</h2>
+                        {error && <alert variant="dander">{error}</alert>}
+                        <form onSubmit={handleSubmit}>
+                            <div id="email">
+                                <form>{emailRef}</form>
+                            </div>
+                            <div id="password">
+                                <form>New Password</form>
+                                <input type="password" ref={passwordRef} required />
+                            </div>
+                            <div id="password-confirm">
+                                <form>Confirm Password</form>
+                                <input type="password" ref={passwordConfirmRef} required />
+                            </div>
+                            <button disabled={loading} onClick={handleMainPage} type="submit">Update</button>
+                        </form>
+                    </card>
+                    <div>
+                        <Link to="/" onClick={handleMainPage}>Cancel</Link>
                     </div>
-                </Container>
+                </div>
             </div>
         </>
     )

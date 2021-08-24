@@ -1,8 +1,7 @@
-import { Container } from '@material-ui/core';
-import React, { useRef, useState } from 'react';
-import { Alert, Button, Card, Form } from 'react-bootstrap';
+import React, { useContext, useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../Contexts/AuthContext';
+import { clientContext } from '../../Contexts/ClientContext';
 
 const SignUp = () => {
     const emailRef = useRef()
@@ -12,6 +11,7 @@ const SignUp = () => {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const history = useHistory()
+    const { handleMainPage } = useContext(clientContext)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -29,41 +29,39 @@ const SignUp = () => {
             setError('Failed to create an account')
         }
         setLoading(false)
+        handleMainPage()
     }
 
     return (
         <>
-            <div className="App">
-                <Container className="d-flex align-items-center justify-content-center"
-                    style={{ height: "100vh" }}
-                >
-                    <div className="w-100" style={{ maxWidth: "400px" }}>
-                        <Card>
-                            <Card.Body>
-                                <h2 className="text-center mb-4">Sign Up</h2>
-                                {error && <Alert variant="dander">{error}</Alert>}
-                                <Form onSubmit={handleSubmit}>
-                                    <Form.Group id="email">
-                                        <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" ref={emailRef} required />
-                                    </Form.Group>
-                                    <Form.Group id="password">
-                                        <Form.Label>Password</Form.Label>
-                                        <Form.Control type="password" ref={passwordRef} required />
-                                    </Form.Group>
-                                    <Form.Group id="password-confirm">
-                                        <Form.Label>Password Confirmation</Form.Label>
-                                        <Form.Control type="password" ref={passwordConfirmRef} required />
-                                    </Form.Group>
-                                    <Button disabled={loading} className="w-100 mt-3" type="submit">Sign Up</Button>
-                                </Form>
-                            </Card.Body>
-                        </Card>
-                        <div className="w-100 text-center mt-2">
-                            Already have an account? <Link to="login">Log In</Link>
-                        </div>
+            <div className="auth-container">
+                <div className="auth-block">
+                    <card>
+                        <h2>Log In</h2>
+                        {error && <alert variant="dander">{error}</alert>}
+                        <form onSubmit={handleSubmit}>
+                            <div id="email">
+                                <form>Email</form>
+                                <input type="email" ref={emailRef} required />
+                            </div>
+                            <div id="password">
+                                <form>Password</form>
+                                <input type="password" ref={passwordRef} required />
+                            </div>
+                            <div id="password-confirm">
+                                <form>Password</form>
+                                <input type="password" ref={passwordConfirmRef} required />
+                            </div>
+                            <button disabled={loading} type="submit">Sign Up</button>
+                        </form>
+                    </card>
+                    <div>
+                        Already have an account? <Link to="login">Log In</Link>
                     </div>
-                </Container>
+                    <div>
+                        <Link to="/" onClick={handleMainPage}>Cancel</Link>
+                    </div>
+                </div>
             </div>
         </>
     );

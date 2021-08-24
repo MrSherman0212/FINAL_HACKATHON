@@ -1,6 +1,4 @@
-import { Container } from '@material-ui/core';
 import React, { useRef, useState } from 'react';
-import { Alert, Button, Card, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../Contexts/AuthContext';
 
@@ -28,32 +26,24 @@ const ForgotPassword = () => {
 
     return (
         <>
-            <div className="App">
-                <Container className="d-flex align-items-center justify-content-center"
-                    style={{ height: "100vh" }}
-                >
-                    <div className="w-100" style={{ maxWidth: "400px" }}>
-                        <Card>
-                            <Card.Body>
-                                <h2 className="text-center mb-4">Password Reset</h2>
-                                {error && <Alert variant="dander">{error}</Alert>}
-                                <Form onSubmit={handleSubmit}>
-                                    <Form.Group id="email">
-                                        <Form.Label>Email</Form.Label>
-                                        <Form.Control type="email" ref={emailRef} required />
-                                    </Form.Group>
-                                    <Button disabled={loading} className="w-100 mt-3" type="submit">Reset Password</Button>
-                                </Form>
-                                <div className="w-100 text-center mt-3">
-                                    <Link to="/login">Log In</Link>
-                                </div>
-                            </Card.Body>
-                        </Card>
-                        <div className="w-100 text-center mt-2">
-                            Need an account? <Link to="signup">Sign Up</Link>
-                        </div>
+            <div className="auth-container">
+                <div className="auth-block">
+                    <card>
+                        <h2>Reset Password</h2>
+                        {error && <alert variant="dander">{error}</alert>}
+                        <form onSubmit={handleSubmit}>
+                            <div id="email">
+                                <form>Email</form>
+                                <input type="email" ref={emailRef} required />
+                            </div>
+                            <button disabled={loading} type="submit">Reset Password</button>
+                        </form>
+                        <Link to="/login">Log In</Link>
+                    </card>
+                    <div>
+                        Need an account? <Link to="signup">Sign Up</Link>
                     </div>
-                </Container>
+                </div>
             </div>
         </>
     );
