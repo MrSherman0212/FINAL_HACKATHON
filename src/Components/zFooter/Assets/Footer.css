@@ -1,0 +1,9 @@
+footer {
+  width: 100%;
+  min-height: 200px;
+  background-color: #202020;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+}/*# sourceMappingURL=Footer.css.map */

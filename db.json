@@ -1,0 +1,20 @@
+{
+  "products": [
+    {
+      "title": "iPhone 8",
+      "price": "800",
+      "category": "phone",
+      "image": "lalal",
+      "description": "Good phone",
+      "id": 1
+    },
+    {
+      "title": "",
+      "price": "",
+      "category": "",
+      "image": "",
+      "description": "",
+      "id": 2
+    }
+  ]
+}
