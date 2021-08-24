@@ -5,16 +5,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: $latoFont;
 }
 
 .dark {
-    background-color: $dark !important;
-    color: $light !important;
+    background-color: #202020e8 !important;
+    color: #fff !important;
     transition: background-color 1s ease-out;
 }
 
 .light {
-    background-color: $light !important;
+    background-color: #fff !important;
     color: unset !important;
     transition: background-color 1s ease-out;
 }

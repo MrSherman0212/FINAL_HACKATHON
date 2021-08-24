@@ -3,17 +3,17 @@ import { useContext } from 'react';
 import { clientContext } from '../../Contexts/ClientContext';
 import './Content.css';
 
-const Home = () => {
+const List = () => {
     const [x, setX] = useState()
     const [y, setY] = useState()
-    const { mode } = useContext(clientContext)
+    const { mode, shadow } = useContext(clientContext)
 
     const handleMouseMove = event => {
         setX(event.clientX)
         setY(event.clientY)
     }
     const blockClass = {
-        boxShadow: `${mode ? 0 : (-x / 50)}px ${mode ? 0 : (-y / 50)}px 10px 0px ${mode ? "#d57cff" : "#666666"}`
+        boxShadow: `${mode ? 0 : (-x / 100)}px ${(-y / 100)}px 20px 0px ${shadow}`
     }
 
     return (
@@ -31,8 +31,11 @@ const Home = () => {
             <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
             <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
             <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
+            <div className={`${mode ? "dark" : "light"} block-class`} style={blockClass} ></div>
         </div >
     );
 };
 
-export default Home;
+export default List;

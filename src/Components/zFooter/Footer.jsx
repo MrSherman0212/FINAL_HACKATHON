@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { clientContext } from '../../Contexts/ClientContext';
-import './Footer.css';
+import './Assets/Footer.css';
 
 const Footer = () => {
-    const { mode } = useContext(clientContext)
+    const { mode, blockShadowStyle } = useContext(clientContext)
 
     return (
-        <footer className={mode ? "dark" : "light"}>
+        <footer className="footer" style={blockShadowStyle}>
             lol
         </footer>
     );
