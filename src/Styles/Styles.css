@@ -199,6 +199,7 @@ header {
   border: none;
   border-radius: 5px;
   padding: 5px;
+  background-color: #e8e6fc;
 }
 .add-container .btn-block button {
   width: 50px;
@@ -207,6 +208,40 @@ header {
   border: none;
   border-radius: 5px;
   margin: 10px;
+}
+
+.img {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+}
+.img img {
+  height: 100%;
+}
+
+.bar {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btns {
+  width: 100%;
+  height: 20%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "edit-btn delete-btn";
+}
+.btns button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dfd7fd;
 }
 
 * {

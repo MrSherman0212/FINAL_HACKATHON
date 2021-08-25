@@ -6,13 +6,16 @@ import { JSON_API } from '../helpers/constants';
 export const clientContext = React.createContext()
 
 const INIT_STATE = {
-    products: null
+    products: null,
+    edit: [],
 }
 
 const reducer = (state = INIT_STATE, action) => {
     switch (action.type) {
         case "GET_PRODUCTS":
             return { ...state, products: action.payload }
+        case "GET_PRODUCT_TO_EDIT":
+            return { ...state, edit: action.payload }
         default:
             return state
     }
@@ -43,6 +46,25 @@ const ClientContextProvider = ({ children }) => {
 
     async function createProduct(newProduct) {
         await axios.post(JSON_API, newProduct)
+        getProducts()
+    }
+
+    const deleteProduct = async (id) => {
+        await axios.delete(`${JSON_API}/${id}`)
+        getProducts()
+    }
+
+    const getProductToEdit = async (id) => {
+        const { data } = await axios(`${JSON_API}/${id}`)
+
+        dispatch({
+            type: "GET_PRODUCT_TO_EDIT",
+            payload: data
+        })
+    }
+
+    const saveEditedProduct = async (product) => {
+        await axios.patch(`${JSON_API}/${product.id}`, product)
         getProducts()
     }
 
@@ -84,6 +106,7 @@ const ClientContextProvider = ({ children }) => {
             mainPage,
             navMenuToggle,
             products: state.products,
+            edit: state.edit,
             handleMode,
             createProduct,
             filterDropDown,
@@ -91,6 +114,9 @@ const ClientContextProvider = ({ children }) => {
             handleMainPage,
             handleMenu,
             getProducts,
+            deleteProduct,
+            getProductToEdit,
+            saveEditedProduct
         }
         }>
             {children}

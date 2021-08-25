@@ -1,15 +1,16 @@
-import React from 'react';
-import { useContext, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../Contexts/AuthContext';
 import { clientContext } from '../../Contexts/ClientContext';
 import Header from '../aHeader/Header';
 import Footer from '../zFooter/Footer';
 
-const Add = () => {
-    const { createProduct, theme } = useContext(clientContext)
+const Edit = () => {
+    const { edit, saveEditedProduct, theme } = useContext(clientContext)
+    const history = useHistory()
     const { currentUser } = useAuth()
-    const [newProduct, setNewProduct] = useState({
+    const [editProduct, setEditProduct] = useState({
         title: '',
         location: '',
         phone: '',
@@ -21,27 +22,20 @@ const Add = () => {
         id: new Date().valueOf(),
     })
 
-    const history = useHistory();
+    useEffect(() => {
+        setEditProduct(edit)
+    }, [edit])
 
-    function handleInput(e) {
+    const handleInput = (e) => {
         let obj = {
-            ...newProduct,
+            ...editProduct,
             [e.target.name]: e.target.value
         }
-        setNewProduct(obj)
+        setEditProduct(obj)
     }
 
-    function handleClick() {
-        createProduct(newProduct)
-        setNewProduct({
-            title: "",
-            location: "",
-            phone: "",
-            price: "",
-            category: "",
-            image: "",
-            description: "",
-        })
+    const handleClick = () => {
+        saveEditedProduct(editProduct)
         history.push('/')
     }
 
@@ -55,36 +49,36 @@ const Add = () => {
                             <div className="add-block">
                                 <div className="input-block">
                                     <span>title</span>
-                                    <input value={newProduct.title} onChange={handleInput} name="title" />
+                                    <input value={editProduct.title} onChange={handleInput} name="title" />
                                 </div>
                                 <div className="input-block">
                                     <span>location</span>
-                                    <input value={newProduct.location} onChange={handleInput} name="location" />
+                                    <input value={editProduct.location} onChange={handleInput} name="location" />
                                 </div>
                                 <div className="input-block">
                                     <span>phone number</span>
-                                    <input value={newProduct.phone} onChange={handleInput} name="phone" />
+                                    <input value={editProduct.phone} onChange={handleInput} name="phone" />
                                 </div>
                                 <div className="input-block">
                                     <span>price</span>
-                                    <input value={newProduct.price} onChange={handleInput} name="price" />
+                                    <input value={editProduct.price} onChange={handleInput} name="price" />
                                 </div>
                                 <div className="input-block">
                                     <span>Category</span>
-                                    <input value={newProduct.category} onChange={handleInput} name="category" />
+                                    <input value={editProduct.category} onChange={handleInput} name="category" />
                                 </div>
                                 <div className="input-block">
                                     <span>image(url)</span>
-                                    <input value={newProduct.image} onChange={handleInput} name="image" />
+                                    <input value={editProduct.image} onChange={handleInput} name="image" />
                                 </div>
                                 <div className="input-block">
                                     <span>description</span>
-                                    <input value={newProduct.description} onChange={handleInput} name="description" />
+                                    <input value={editProduct.description} onChange={handleInput} name="description" />
                                 </div>
                             </div>
                             <div className="btn-block">
-                                <button onClick={handleClick}>Add</button>
-                                <button onClick={() => history.push('/')}>Close</button>
+                                <button onClick={handleClick}>Update</button>
+                                <button onClick={() => history.push('/')}>Cancel</button>
                             </div>
                         </div>
                         <Footer />
@@ -95,4 +89,4 @@ const Add = () => {
     );
 };
 
-export default Add;
+export default Edit;

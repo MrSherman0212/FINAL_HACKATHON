@@ -21,6 +21,7 @@
   border: none;
   border-radius: 5px;
   padding: 5px;
+  background-color: #e8e6fc;
 }
 .add-container .btn-block button {
   width: 50px;

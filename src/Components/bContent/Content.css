@@ -7,6 +7,14 @@
     flex-wrap: wrap;
 }
 
+.card {
+    width: 200px;
+    height: 200px;
+    background-color: #fdfdfd;
+    box-shadow: 0 0 10px 0 #666666;
+    margin: 50px;
+}
+
 .list-head {
     box-shadow: 0 0 5px 0 #ffffff;
     display: flex;

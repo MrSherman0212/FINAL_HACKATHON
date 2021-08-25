@@ -11,13 +11,17 @@ import './Content.css';
 const List = () => {
     const [x, setX] = useState()
     const [y, setY] = useState()
-    const { mode, products } = useContext(clientContext)
+    const { mode, shadow, theme, products } = useContext(clientContext)
     const { currentUser } = useAuth()
     const history = useHistory()
 
     const handleMouseMove = event => {
         setX(event.clientX)
         setY(event.clientY)
+    }
+
+    const blockClass = {
+        boxShadow: `${mode ? 0 : ((-x / 100) + 5)}px ${((-y / 100) + 5)}px 20px 0px ${shadow}`
     }
 
     const goToAdd = () => {
@@ -33,8 +37,12 @@ const List = () => {
                         {
                             products ? (
                                 products.length ? (
-                                    products.map(product => <Card coordinates={{ x, y }} key={product.id} product={product} />)
-                                ) : (
+                                    products.map(product => (
+                                        <div className={`${theme} card`} style={blockClass}>
+                                            <Card key={product.id} product={product} />
+                                        </div>
+                                    )
+                                    )) : (
                                     <h1>Empty</h1>
                                 )
                             ) : (
@@ -54,7 +62,11 @@ const List = () => {
                                 {
                                     products ? (
                                         products.length ? (
-                                            products.map(product => currentUser.email ? <Card coordinates={{ x, y }} key={product.id} product={product} /> : null)
+                                            products.map(product => (currentUser.email === product.user) ? (
+                                                <div className={`${theme} card`} style={blockClass}>
+                                                    <Card coordinates={{ x, y }} key={product.id} product={product} />
+                                                </div>
+                                            ) : null)
                                         ) : (
                                             <h1>Empty</h1>
                                         )
