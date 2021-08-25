@@ -26,11 +26,13 @@ const ClientContextProvider = ({ children }) => {
     const [mode, setMode] = useState(false)
     const theme = mode ? "dark" : "light"
     const shadow = mode ? "#d57cff" : "#666666"
+    const shadowAbout = { boxShadow: `2px 2px 7px 0px ${shadow}` }
     const history = useHistory();
     const [filterToggle, setFilterToggle] = useState(false);
     const [navMenuToggle, setNavMenuToggle] = useState(false);
     const [profileToggle, setProfileToggle] = useState(false);
     const [mainPage, setMainPage] = useState(true);
+    const [aboutProduct, setAboutProduct] = useState('');
 
     //CRUD
     async function getProducts() {
@@ -100,6 +102,7 @@ const ClientContextProvider = ({ children }) => {
             mode,
             theme,
             shadow,
+            shadowAbout,
             filterToggle,
             blockShadowStyle,
             profileToggle,
@@ -107,6 +110,7 @@ const ClientContextProvider = ({ children }) => {
             navMenuToggle,
             products: state.products,
             edit: state.edit,
+            aboutProduct,
             handleMode,
             createProduct,
             filterDropDown,
@@ -116,7 +120,8 @@ const ClientContextProvider = ({ children }) => {
             getProducts,
             deleteProduct,
             getProductToEdit,
-            saveEditedProduct
+            saveEditedProduct,
+            setAboutProduct,
         }
         }>
             {children}

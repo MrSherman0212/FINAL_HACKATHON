@@ -11,7 +11,7 @@ import './Content.css';
 const List = () => {
     const [x, setX] = useState()
     const [y, setY] = useState()
-    const { mode, shadow, theme, products } = useContext(clientContext)
+    const { mode, shadow, theme, products, setAboutProduct } = useContext(clientContext)
     const { currentUser } = useAuth()
     const history = useHistory()
 
@@ -21,11 +21,16 @@ const List = () => {
     }
 
     const blockClass = {
-        boxShadow: `${mode ? 0 : ((-x / 100) + 5)}px ${((-y / 100) + 5)}px 20px 0px ${shadow}`
+        boxShadow: `${((-x / 100) + 5)}px ${((-y / 100) + 5)}px 20px 0px ${shadow}`
     }
 
     const goToAdd = () => {
         history.push("/add")
+    }
+
+    const handleAdout = (e) => {
+        setAboutProduct(e)
+        history.push("/about")
     }
 
     return (
@@ -38,7 +43,7 @@ const List = () => {
                             products ? (
                                 products.length ? (
                                     products.map(product => (
-                                        <div className={`${theme} card`} style={blockClass}>
+                                        <div className={`${theme} card`} style={blockClass} onClick={() => handleAdout(product)}>
                                             <Card key={product.id} product={product} />
                                         </div>
                                     )
