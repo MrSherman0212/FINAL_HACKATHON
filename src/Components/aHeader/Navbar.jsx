@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { clientContext } from '../../Contexts/ClientContext';
 import lightBookLogo from '../../Assets/Images/lightBookLogo2.svg';
 import darkBookLogo from '../../Assets/Images/darkBookLogo2.png';
@@ -10,11 +10,11 @@ import WbSunnySharpIcon from '@material-ui/icons/WbSunnySharp';
 import { useAuth } from '../../Contexts/AuthContext';
 
 const Navbar = () => {
-    const { mode, theme, blockShadowStyle, handleMode, filterDropDown, profileToggle, profileDropDown, handleMainPage } = useContext(clientContext)
+    const { mode, theme, blockShadowStyle, handleMode, filterDropDown, profileToggle, profileDropDown, handleMenu, handleMainPage, getProducts } = useContext(clientContext)
     const history = useHistory()
+    const { currentUser } = useAuth()
     const [error, setError] = useState("")
-    const { currentUser, logout } = useAuth()
-
+    const { logout } = useAuth()
     function setHistory() {
         history.push('/')
     }
@@ -29,15 +29,30 @@ const Navbar = () => {
         }
     }
 
-    async function handleUpdate() {
+    function handleUpdate() {
         history.push("/update-password")
         handleMainPage()
     }
 
-    async function handleLogin() {
+    function handleLogin() {
         history.push("/login")
         handleMainPage()
     }
+
+    let search = new URLSearchParams(history.location.search)
+    const [searchWord, setSearchWord] = useState(search.get('q') || '')
+    function handleSearchInput(params, value) {
+        setSearchWord(value)
+        search.set(params, value)
+        search.set("_page", 1);
+        let url = `${history.location.pathname}?${search.toString()}`
+        history.push(url)
+    }
+
+    useEffect(() => {
+        getProducts(history)
+    }, [searchWord])
+
 
     return (
         <div className={`${theme} navbar`} style={blockShadowStyle}>
@@ -54,7 +69,9 @@ const Navbar = () => {
                     )
                 }
                 <div className="search">
-                    <input type="search" placeholder="Search..." />
+                    <input type="search" placeholder="Search..."
+                        onChange={(e) => handleSearchInput("q", e.target.value)}
+                    />
                 </div>
                 <div className="filter-btn" onClick={filterDropDown}>
                     Filter
@@ -76,13 +93,16 @@ const Navbar = () => {
                             </>
                         ) : (
                             <>
+                                {currentUser ? (
+                                    <div>{currentUser.email}</div>
+                                ) : (null)}
                                 your profile
                             </>
                         )
                     }
                 </div>
             </div>
-            <div className="nav-burger-menu">
+            <div className="nav-burger-menu" onClick={handleMenu}>
                 <img src={mode ? darkBurger : lightBurger} alt="burger menu" />
             </div>
         </div>

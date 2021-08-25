@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useReducer, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { JSON_API } from '../helpers/constants';
 
@@ -25,10 +25,12 @@ const ClientContextProvider = ({ children }) => {
     const shadow = mode ? "#d57cff" : "#666666"
     const history = useHistory();
     const [filterToggle, setFilterToggle] = useState(false);
+    const [navMenuToggle, setNavMenuToggle] = useState(false);
     const [profileToggle, setProfileToggle] = useState(false);
     const [mainPage, setMainPage] = useState(true);
 
-    const getProducts = async () => {
+    //CRUD
+    async function getProducts() {
         const search = new URLSearchParams(window.location.search);
         search.set('_limit', 4)
         history ? (history.push(`${history.location.pathname}?${search.toString()}`)) : (console.log(null))
@@ -39,14 +41,16 @@ const ClientContextProvider = ({ children }) => {
         })
     }
 
+    async function createProduct(newProduct) {
+        await axios.post(JSON_API, newProduct)
+        getProducts()
+    }
+
+    // design
     const handleMode = () => {
         setMode(!mode);
         localStorage.setItem('mode', mode)
         localStorage.getItem('mode')
-    }
-    const createProduct = async (newProduct) => {
-        await axios.post(JSON_API, newProduct)
-        getProducts()
     }
 
     const filterDropDown = () => {
@@ -59,6 +63,10 @@ const ClientContextProvider = ({ children }) => {
 
     const handleMainPage = () => {
         setMainPage(!mainPage)
+    }
+
+    const handleMenu = () => {
+        setNavMenuToggle(!navMenuToggle)
     }
 
     const blockShadowStyle = {
@@ -74,11 +82,15 @@ const ClientContextProvider = ({ children }) => {
             blockShadowStyle,
             profileToggle,
             mainPage,
+            navMenuToggle,
+            products: state.products,
             handleMode,
             createProduct,
             filterDropDown,
             profileDropDown,
             handleMainPage,
+            handleMenu,
+            getProducts,
         }
         }>
             {children}

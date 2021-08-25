@@ -7,10 +7,17 @@
     flex-wrap: wrap;
 }
 
-.block-class {
-    width: 200px;
-    height: 200px;
-    background-color: #fdfdfd;
-    box-shadow: 0 0 10px 0 #666666;
-    margin: 50px;
+.list-head {
+    box-shadow: 0 0 5px 0 #ffffff;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.list-head button {
+    width: 30px;
+    height: 30px;
+    background-color: #e8e2fd;
+    border: none;
+    border-radius: 5px;
 }
