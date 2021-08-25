@@ -1,0 +1,78 @@
+.about-product-container {
+  width: 100%;
+  min-height: 80vh;
+}
+.about-product-container .about-product-block {
+  width: 100%;
+}
+.about-product-container .about-product-block .section1 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "image side-section";
+}
+.about-product-container .about-product-block .section1 .image {
+  width: 500px;
+}
+@media all and (max-width: 900px) {
+  .about-product-container .about-product-block .section1 .image {
+    width: unset;
+    height: 300px;
+  }
+}
+@media all and (max-width: 500px) {
+  .about-product-container .about-product-block .section1 .image {
+    width: unset;
+    height: 200px;
+  }
+}
+.about-product-container .about-product-block .section1 .side-section {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+}
+.about-product-container .about-product-block .section1 .side-section p {
+  margin-top: 10px;
+  word-wrap: normal;
+}
+@media all and (max-width: 900px) {
+  .about-product-container .about-product-block .section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.about-product-container .about-product-block .section2 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  grid-template-areas: "tags tag-values";
+}
+.about-product-container .about-product-block .section2 .tags {
+  width: 100%;
+}
+.about-product-container .about-product-block .section2 .tags .tag {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px;
+}
+.about-product-container .about-product-block .section2 .tag-values {
+  width: 100%;
+}
+.about-product-container .about-product-block .section2 .tag-values .value {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  word-wrap: normal;
+}
+@media all and (max-width: 900px) {
+  .about-product-container .about-product-block .section2 {
+    grid-template-columns: 180px 1fr;
+  }
+}/*# sourceMappingURL=About.css.map */

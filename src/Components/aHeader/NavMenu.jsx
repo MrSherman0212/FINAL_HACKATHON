@@ -32,7 +32,7 @@ const NavMenu = () => {
     }
 
     return (
-        <div className={`${mode ? "dark" : "light"} ${navMenuToggle ? 'dropDownOn' : 'dropDownOff'} filter drop`} style={blockShadowStyle}>
+        <div className={`${mode ? "dark" : "light"} ${navMenuToggle ? 'dropDownOn' : 'dropDownOff'} mobile-drop-down drop`} style={blockShadowStyle}>
             <div className="section">
                 {
                     mode ? (

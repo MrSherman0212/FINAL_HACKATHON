@@ -4,6 +4,7 @@ import ForgotPassword from '../Components/aAuth/ForgotPassword';
 import Login from '../Components/aAuth/Login';
 import SignUp from '../Components/aAuth/SignUp';
 import UpdateProfile from '../Components/aAuth/UpdatePassword';
+import About from '../Components/bContent/About';
 import List from '../Components/bContent/List';
 import Add from '../Components/CRUD/Add';
 import Edit from '../Components/CRUD/Edit';
@@ -17,6 +18,7 @@ const Routes = () => {
                 <BrowserRouter>
                     <Switch>
                         <Route exact path="/" component={List} />
+                        <Route exact path="/about" component={About} />
                         <Route exact path="/add" component={Add} />
                         <Route exact path="/edit" component={Edit} />
                         <Route exact path="/signup" component={SignUp} />
