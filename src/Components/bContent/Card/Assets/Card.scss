@@ -1,0 +1,33 @@
+.img {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+
+    img {
+        height: 100%;
+    }
+}
+.bar {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.btns {
+    width: 100%;
+    height: 20%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "edit-btn delete-btn";
+
+    button {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #dfd7fd;
+    }
+}

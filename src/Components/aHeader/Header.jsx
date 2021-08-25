@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { clientContext } from '../../Contexts/ClientContext';
 import Filter from './Filter';
 import Navbar from './Navbar';
+import NavMenu from './NavMenu';
 
 const Header = () => {
     const { theme } = useContext(clientContext)
@@ -9,6 +10,7 @@ const Header = () => {
     return (
         <header className={theme} >
             <Navbar />
+            <NavMenu />
             <Filter />
         </header>
     );

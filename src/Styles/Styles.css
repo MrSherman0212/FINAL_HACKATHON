@@ -104,6 +104,33 @@ header {
   display: none;
 }
 
+.section {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.section .search {
+  transition: 0.5s;
+}
+.section .search input {
+  padding: 5px;
+}
+.section .theme-btn {
+  border-radius: 50%;
+}
+.section :hover {
+  box-shadow: -10px 0px 13px -7px #d57cff, 10px 0px 13px -7px #d57cff, 0px 0px 7px 0px #d57cff;
+  transition: 0.5s;
+}
+
+@media all and (min-width: 750px) {
+  .drop {
+    display: none;
+  }
+}
+
 .auth-container {
   width: 100%;
   height: 100vh;
@@ -147,6 +174,74 @@ header {
 }
 .auth-container .auth-block card form button:hover {
   box-shadow: 0px 0px 10px 0px #d6cfff;
+}
+
+.add-container {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+}
+.add-container .add-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-container .add-block .input-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.add-container .add-block .input-block input {
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #e8e6fc;
+}
+.add-container .btn-block button {
+  width: 50px;
+  height: 30px;
+  background-color: #ede9ff;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.img {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+}
+.img img {
+  height: 100%;
+}
+
+.bar {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.btns {
+  width: 100%;
+  height: 20%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "edit-btn delete-btn";
+}
+.btns button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #dfd7fd;
 }
 
 * {

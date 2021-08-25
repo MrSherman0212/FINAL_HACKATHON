@@ -7,7 +7,6 @@ const Footer = () => {
 
     return (
         <footer className="footer" style={blockShadowStyle}>
-            lol
         </footer>
     );
 };
