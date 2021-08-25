@@ -4,7 +4,7 @@ import { useAuth } from '../../../Contexts/AuthContext';
 import { clientContext } from '../../../Contexts/ClientContext';
 
 const Card = ({ product }) => {
-    const { getProductToEdit } = useContext(clientContext)
+    const { getProductToEdit, deleteProduct } = useContext(clientContext)
     const { currentUser } = useAuth();
     const history = useHistory();
 
@@ -35,7 +35,7 @@ const Card = ({ product }) => {
                             <button className="edit-btn" onClick={goToEdit}>
                                 Edit
                             </button>
-                            <button className="delete-btn">
+                            <button className="delete-btn" onClick={() => deleteProduct(product.id)}>
                                 Delete
                             </button>
                         </div>

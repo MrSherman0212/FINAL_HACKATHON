@@ -10,17 +10,7 @@ const Edit = () => {
     const { edit, saveEditedProduct, theme } = useContext(clientContext)
     const history = useHistory()
     const { currentUser } = useAuth()
-    const [editProduct, setEditProduct] = useState({
-        title: '',
-        location: '',
-        phone: '',
-        price: '',
-        category: '',
-        image: '',
-        description: '',
-        user: currentUser.email,
-        id: new Date().valueOf(),
-    })
+    const [editProduct, setEditProduct] = useState("")
 
     useEffect(() => {
         setEditProduct(edit)
