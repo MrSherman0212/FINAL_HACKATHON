@@ -1,1 +1,1 @@
-export const JSON_API = 'http://localhost:8000/products';
+export const JSON_API = 'https://bbooker.herokuapp.com/api';
