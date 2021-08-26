@@ -11,7 +11,7 @@ import './Content.css';
 const List = () => {
     const [x, setX] = useState()
     const [y, setY] = useState()
-    const { mode, shadow, theme, products, setAboutProduct } = useContext(clientContext)
+    const { mode, shadow, theme, products } = useContext(clientContext)
     const { currentUser } = useAuth()
     const history = useHistory()
 
@@ -28,11 +28,6 @@ const List = () => {
         history.push("/add")
     }
 
-    const handleAdout = (e) => {
-        setAboutProduct(e)
-        history.push("/about")
-    }
-
     return (
         <>
             <div onMouseMove={handleMouseMove}>
@@ -43,7 +38,7 @@ const List = () => {
                             products ? (
                                 products.length ? (
                                     products.map(product => (
-                                        <div className={`${theme} card`} style={blockClass} onClick={() => handleAdout(product)}>
+                                        <div className={`${theme} card`} style={blockClass}>
                                             <Card key={product.id} product={product} />
                                         </div>
                                     )

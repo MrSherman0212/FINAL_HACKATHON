@@ -1,37 +1,26 @@
 {
   "products": [
     {
-      "title": "book",
-      "location": "New York",
-      "phone": "0909989",
-      "price": "800",
-      "category": "детектив",
-      "image": "https://lh3.googleusercontent.com/proxy/uq2TTdjGeLNJqr7eFaSMWPNyMRWwq4JRDbmTG38_ExTLdj325Uaz82AG72Gq-Sm5OIJBNfAwxw",
-      "description": "good boob",
-      "user": "lalala@gmail.com",
-      "id": 1629859361495
-    },
-    {
-      "title": "",
-      "location": "",
-      "phone": "",
-      "price": "800$",
-      "category": "",
-      "image": "",
-      "description": "",
+      "title": "Harry Potter",
+      "location": "Tsum",
+      "phone": "777777777",
+      "price": "1200 c",
+      "category": "фантастика",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/91ocU8970hL.jpg",
+      "description": "«Га́рри По́ттер» — серия романов, написанная британской писательницей Дж. К. Роулинг. Книги представляют собой хронику приключений юного волшебника Гарри Поттера, а также его друзей Рона Уизли и Гермионы Грейнджер, обучающихся в школе чародейства и волшебства Хогвартс.",
       "user": "sher@gmail.com",
-      "id": 1629889834900
+      "id": 1629950445407
     },
     {
-      "title": "sher's book",
-      "location": "",
-      "phone": "",
-      "price": "10000000000",
-      "category": "",
-      "image": "",
-      "description": "",
+      "title": "Алгебра 9 класс",
+      "location": "московская белинка",
+      "phone": "990999999",
+      "price": "1000",
+      "category": "учебная книга",
+      "image": "https://www.euroki.org/system/books/covers/000/004/436/thumb/cover.jpeg?1612518523",
+      "description": "школьный учебник",
       "user": "shergazy@gmail.com",
-      "id": 1629895997710
+      "id": 1629957598191
     }
   ]
 }

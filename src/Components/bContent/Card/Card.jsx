@@ -4,7 +4,7 @@ import { useAuth } from '../../../Contexts/AuthContext';
 import { clientContext } from '../../../Contexts/ClientContext';
 
 const Card = ({ product }) => {
-    const { getProductToEdit, deleteProduct } = useContext(clientContext)
+    const { getProductToEdit, deleteProduct, setAboutProduct } = useContext(clientContext)
     const { currentUser } = useAuth();
     const history = useHistory();
 
@@ -13,9 +13,14 @@ const Card = ({ product }) => {
         history.push("/edit")
     }
 
+    const handleAdout = (e) => {
+        setAboutProduct(e)
+        history.push("/about")
+    }
+
     return (
         <>
-            <div className="img">
+            <div className="img" onClick={() => handleAdout(product)}>
                 <img src={product.image} alt="" />
             </div>
             <div className="bar">
